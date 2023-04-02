@@ -7,8 +7,8 @@ import { Immutable } from '@src/other/types';
 
 const Paths = {
   Base: '/api',
-  Users: {
-    Base: '/users',
+  Tasks: {
+    Base: '/tasks',
     Get: '/all',
     Add: '/add',
     Update: '/update',

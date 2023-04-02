@@ -5,9 +5,10 @@
  */
 
 // NOTE: DO NOT IMPORT ANY SOURCE CODE HERE
-import path from 'path';
-import dotenv from 'dotenv';
+import path = require('path');
+import dotenv = require('dotenv');
 import { parse } from 'ts-command-line-args';
+import { RepositorySource } from './repos/connection';
 
 
 // **** Types **** //
@@ -25,6 +26,7 @@ const args = parse<IArgs>({
     type: String,
     defaultValue: 'development',
     alias: 'e',
+    optional: true,
   },
 });
 
