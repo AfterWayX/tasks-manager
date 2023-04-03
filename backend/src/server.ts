@@ -17,8 +17,8 @@ import { NodeEnvs } from '@src/constants/misc';
 import { RouteError } from '@src/other/classes';
 import express = require('express');
 import path = require('path');
-import { RepositorySource } from './repos/connection';
 
+const cors = require('cors');
 
 // **** Variables **** //
 
@@ -30,7 +30,9 @@ const app = express();
 // Basic middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(cors({
+  origin: '*'
+}));
 // Add APIs, must be after middleware
 app.use(Paths.Base, BaseRouter);
 

@@ -9,10 +9,10 @@ const Paths = {
   Base: '/api',
   Tasks: {
     Base: '/tasks',
-    Get: '/all',
-    Add: '/add',
-    Update: '/update',
-    Delete: '/delete/:id',
+    Get: '/',
+    Add: '/',
+    Update: '/',
+    Delete: '/:id',
   },
 };
 

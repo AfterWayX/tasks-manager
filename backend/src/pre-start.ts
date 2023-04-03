@@ -8,7 +8,6 @@
 import path = require('path');
 import dotenv = require('dotenv');
 import { parse } from 'ts-command-line-args';
-import { RepositorySource } from './repos/connection';
 
 
 // **** Types **** //
