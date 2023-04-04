@@ -14,7 +14,7 @@ export default function Footer() {
                 <nav>
                     <ul className="flex gap-x-2.5 font-semibold">
                         {links.map((link, index) => (
-                            <li className="pr-2.5 hover:text-gray-600 transition-all" key={index}>
+                            <li  className="pr-2.5 hover:text-gray-600 transition-all" key={String(index) + link + String(index)}>
                                 <Link to={link.url}>{link.title}</Link>
                             </li>
                         ))}

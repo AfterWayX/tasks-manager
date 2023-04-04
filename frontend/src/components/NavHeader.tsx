@@ -9,7 +9,7 @@ export default function NavHeader() {
     return (
         <ul className="flex gap-x-5 items-center">
             {
-                headerLinks.map(({link, title}) => <NavLink link={link} title={title} />)
+                headerLinks.map(({ link, title }) => <NavLink key={title + ' ' + link} link={link} title={title} />)
             }
         </ul>
     )
