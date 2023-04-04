@@ -16,7 +16,7 @@ const add = async (req: Request, res: Response) => {
 const update = async (req: Request, res: Response) => {
   const taskId = parseInt(req.params.id);
   const taskData = req.body;
-  return await taskRepository.updateTask(taskId, taskData);
+  return res.status(HttpStatusCodes.CREATED).json(await taskRepository.updateTask(taskId, taskData));
 };
 
 const delete_ = async (req: Request, res: Response) => {

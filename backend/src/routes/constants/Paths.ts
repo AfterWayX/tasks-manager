@@ -11,7 +11,7 @@ const Paths = {
     Base: '/tasks',
     Get: '/',
     Add: '/',
-    Update: '/',
+    Update: '/:id',
     Delete: '/:id',
   },
 };

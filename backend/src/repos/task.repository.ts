@@ -13,16 +13,16 @@ class TasksRepository {
         task.title = newTask.title
         task.description = newTask.description
         task.status = newTask.status
-        return await (await this.repository)?.save(task);
+        return await this.repository?.save(task);
     }
 
     async updateTask(id: number, taskData: Partial<Task>): Promise<Task> {
-        await (await this.repository)?.update(id, taskData);
-        return await (await this.repository)?.findOne({ where: { id } });
+        await this.repository?.update(id, taskData);
+        return await this.repository?.findOne({ where: { id } });
     }
 
     async deleteTask(id: number): Promise<void> {
-        await (await this.repository)?.delete(id);
+        await this.repository?.delete(id);
     }
 }
 
