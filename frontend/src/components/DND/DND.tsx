@@ -11,7 +11,7 @@ export default function DND({ tasks, title, handleChange }: DNDInterface) {
         <h2 className='sticky top-0 bg-white pb-2.5 border-b border-gray-300'>{title}</h2>
         {
             tasks.length ? tasks?.map((task, i) => {
-                return <DNDItem key={task.id + i} task={task} handleChange={handleChange} />
+                return <DNDItem key={task.id * i} task={task} handleChange={handleChange} />
             }) : <p className='text-sm text-gray-500'>There are no tasks availble</p>
         }
     </div>

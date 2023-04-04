@@ -1,19 +1,44 @@
 import { Task } from "../../interfaces/Task.interface";
 import { TasksService } from "../../services/Tasks.service";
+import Button from "./Button";
 
-export default function DNDItem({ task, handleChange }: { task: Task, handleChange: () => void }) {
+interface DNDItemInterface {
+    task: Task,
+    handleChange: () => void
+}
+
+export default function DNDItem({ task, handleChange }: DNDItemInterface) {
     const handleDelete = async () => {
-        TasksService.deleteTaskFromList(task.id)
-        setTimeout(() => handleChange())
+        TasksService.deleteTaskFromList(task.id);
+        setTimeout(() => handleChange(), 1)
     }
+
+    const handleTaskDone = async () => {
+        const updatedTask = await TasksService.updateTaskFromList(
+            task.id,
+            {
+                status: task.status === 'done'
+                    ? 'progress'
+                    : 'done'
+            }
+        )
+        if (updatedTask) {
+            handleChange()
+        };
+    }
+
     return (
-        <div className="flex w-full border border-gray-300 rounded-lg p-1 justify-between">
+        <div className="flex w-full border border-gray-300 rounded-lg p-1.5 justify-between">
             <div>
                 <h3 className="text-lg">{task.title}</h3>
                 <h4>{task.description}</h4>
             </div>
-            <div>
-                <button onClick={() => handleDelete()}>delete</button>
+            <div className="flex flex-col justify-between">
+                <Button cb={() => handleDelete()} title={'Delete'} />
+                <Button
+                    cb={() => handleTaskDone()}
+                    title={`Mark as ${task.status === 'done' ? 'in progress' : 'done'}`}
+                />
             </div>
         </div>
     )

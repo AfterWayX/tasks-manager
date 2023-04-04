@@ -12,8 +12,8 @@ export class TasksService {
     static addTaskToList(task: Task): Promise<{data: Task}> {
         return instance.post("/tasks", { ...task });
     }
-    static updataTaskFromList(id: number, task: Partial<Task>): Promise<{data: Task}> {
-        return instance.put("/tasks", {id, ...task});
+    static updateTaskFromList(id: number, task: Partial<Task>): Promise<{data: Task}> {
+        return instance.put("/tasks/" + id, {...task});
     }
     static deleteTaskFromList(id: number) {
         return instance.delete("/tasks/" + id);
