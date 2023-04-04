@@ -21,13 +21,13 @@ const AddTaskForm = ({onSubmit}:any) => {
 
 
                     <div className="flex">
-                        <Field as="select" name="status" className="border border-gray-300 rounded-lg py-1 px-1 w-full outline-none" >
+                        <Field as="select" name="status" className="border border-gray-300 overflow-hidden rounded-lg py-1 px-1 w-full outline-none" >
                             <option value="">Select a status</option>
                             <option value="progress">In progress</option>
                             <option value="done">Done</option>
                         </Field>
                     </div>
-                    <button type="submit" disabled={isSubmitting}>
+                    <button className="rounded-lg border border-gray-300 text-xs p-1.5" type="submit" disabled={isSubmitting}>
                         Add Task
                     </button>
                 </Form>)}
