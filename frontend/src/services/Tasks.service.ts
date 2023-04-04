@@ -1,18 +1,12 @@
 import axios from "axios";
+import { Task } from "../interfaces/Task.interface";
 
 const instance = axios.create({
     baseURL: 'http://localhost:3006/api', // here we can add env...
 });
 
-interface Task {
-    id: number;
-    title: string;
-    description: string;
-    status: string;
-}
-
 export class TasksService {
-    static getTasksList(): Promise<{data: Task}> {
+    static getTasksList(): Promise<{data: {tasks: Task[]}}> {
         return instance.get("/tasks");
     }
     static addTaskToList(task: Task): Promise<{data: Task}> {
